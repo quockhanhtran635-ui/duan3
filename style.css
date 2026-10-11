@@ -1,0 +1,74 @@
+/* Giao diện được căn chỉnh theo mẫu PDF của bài thực hành */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: #202432;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+a { color: inherit; text-decoration: none; }
+.page { width: min(800px, calc(100% - 28px)); margin: 0 auto; }
+.site-header { padding-top: 27px; border-bottom: 1px solid #f0f0f0; }
+.site-header h1 { margin: 0 0 13px; font-size: 20px; font-weight: 700; letter-spacing: -.5px; }
+.site-header nav { display: flex; align-items: center; gap: 30px; overflow-x: auto; white-space: nowrap; }
+.site-header nav a { padding: 0 0 12px; color: #313747; font-size: 10px; }
+.site-header nav a.active { color: #1769c2; border-bottom: 2px solid #1769c2; }
+.category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.category { height: 130px; border-radius: 5px; display: flex; align-items: center; position: relative; overflow: hidden; padding: 12px; }
+.category-iphone { background: #dceeff; }
+.category-samsung { background: #ffe8ee; }
+.category-accessory { background: #d9f5e9; }
+.category-copy { width: 65%; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 8px; }
+.category h2 { font-size: 13px; line-height: 1.25; margin: 0 0 2px; white-space: nowrap; }
+.category a { font-size: 9px; color: #353a46; }
+.category img { position: absolute; right: -3px; bottom: 5px; width: 44%; height: 84%; object-fit: contain; mix-blend-mode: multiply; }
+.featured { margin-top: 18px; }
+.featured > h2, .social h2 { text-align: center; font-size: 17px; margin: 0 0 12px; }
+.filters { display: flex; justify-content: center; gap: 8px; margin-bottom: 13px; }
+.filter { background: #fff; border: 1px solid #e8e8e8; border-radius: 20px; padding: 6px 14px; color: #555b67; font-size: 9px; }
+.filter.active { border-color: #8cbbe9; color: #1769c2; }
+.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.product-card { border: 1px solid #ededed; border-radius: 4px; min-width: 0; padding: 8px 9px 10px; }
+.product-image { height: 125px; position: relative; display: flex; align-items: center; justify-content: center; }
+.product-image img { width: 100%; height: 100%; object-fit: contain; }
+.sale-label { position: absolute; z-index: 1; left: -3px; top: -1px; background: #f04d4d; color: white; padding: 4px 7px; border-radius: 4px; font-size: 9px; }
+.product-card h3 { font-size: 10px; font-weight: 400; margin: 8px 0 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.price { margin: 0; color: #e44c4c; font-size: 11px; font-weight: 700; }
+.price del { margin-left: 5px; color: #aaa; font-size: 9px; font-weight: 400; }
+.social { margin-top: 17px; }
+.social h2 { font-size: 17px; margin-bottom: 14px; }
+.gallery { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.gallery img { width: 100%; height: 112px; object-fit: cover; border-radius: 4px; }
+.footer { border-top: 1px solid #f0f0f0; margin-top: 17px; padding-top: 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.footer section { border-right: 1px solid #f0f0f0; padding-right: 10px; }
+.footer section:last-child { border-right: 0; padding-right: 0; }
+.footer h3 { font-size: 10px; margin: 0 0 12px; }
+.footer a { display: block; font-size: 9px; color: #555b67; margin: 0 0 9px; }
+.newsletter form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
+.newsletter input[type="email"] { min-width: 0; width: 100%; border: 1px solid #ddd; border-radius: 3px; padding: 7px; font-size: 9px; }
+.newsletter button { border: 0; border-radius: 3px; background: #1769c2; color: white; padding: 0 10px; font-size: 9px; }
+.options { grid-column: 1 / -1; display: flex; gap: 7px; align-items: center; font-size: 9px; white-space: nowrap; }
+.options label { display: flex; align-items: center; gap: 3px; }
+.options input { margin: 0; }
+#message { grid-column: 1 / -1; margin: 0; color: #16834a; font-size: 9px; }
+.student { font-size: 9px; color: #777; margin: 14px 0 25px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 650px) {
+  .page { width: calc(100% - 24px); }
+  .site-header nav { gap: 20px; }
+  .category-grid { grid-template-columns: 1fr; }
+  .category { height: 145px; }
+  .category-copy { width: 62%; }
+  .category h2 { font-size: 15px; }
+  .category a { font-size: 11px; }
+  .category img { width: 38%; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .product-image { height: 155px; }
+  .product-card h3 { white-space: normal; min-height: 26px; }
+  .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery img { height: 110px; }
+  .gallery img:nth-child(n+4) { display: none; }
+  .footer { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+}
